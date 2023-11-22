@@ -1,3 +1,3 @@
 mod erc20;
-// mod erc20_factory;
+mod erc20_factory;
 
