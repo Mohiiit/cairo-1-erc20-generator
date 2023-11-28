@@ -72,12 +72,16 @@ mod ERC20 {
         ref self: ContractState,
         name: felt252,
         symbol: felt252,
-        initial_supply: u128,
+        initial_supply_low: u128,
+        initial_supply_high: u128,
         recipient: ContractAddress
     ) {
-        let u256_intial_supply: u256 = initial_supply.into();
+        let initial_supply: u256 = u256{
+            low: initial_supply_low,
+            high: initial_supply_high
+        };
         self.initializer(name, symbol);
-        self._mint(recipient, u256_intial_supply);
+        self._mint(recipient, initial_supply);
     }
 
     //

@@ -5,7 +5,7 @@ trait IERC20Factory<TContractState> {
         ref self: TContractState,
         name: felt252,
         symbol: felt252,
-        initial_supply: u128,
+        initial_supply: u256,
         recipient: ContractAddress
     );
 }
@@ -35,10 +35,12 @@ mod ERC20Factory {
             ref self: ContractState,
             name: felt252,
             symbol: felt252,
-            initial_supply: u128,
+            initial_supply: u256,
             recipient: ContractAddress
         ) {
-            let mut calldata = array![name, symbol, initial_supply.into(), recipient.into()];
+            let initial_supply_low = initial_supply.low;
+            let initial_supply_high = initial_supply.high;
+            let mut calldata = array![name, symbol, initial_supply_low.into(), initial_supply_high.into() ,recipient.into()];
             let (new_contract_address, _) = deploy_syscall(
                 self.erc20_class_hash.read(), 0, calldata.span(), false
             )
