@@ -44,7 +44,7 @@ mod ERC20Factory {
             let (new_contract_address, _) = deploy_syscall(
                 self.erc20_class_hash.read(), 0, calldata.span(), false
             )
-                .expect('failed to deploy counter here');
+                .expect('failed to deploy counter dev');
 
             new_contract_address.print();
         }
