@@ -16,7 +16,6 @@ mod ERC20Factory {
         ContractAddress, get_caller_address, ClassHash, class_hash_const, Felt252TryIntoClassHash
     };
     use starknet::syscalls::{deploy_syscall};
-    use debug::PrintTrait;
 
     #[storage]
     struct Storage {
@@ -46,7 +45,6 @@ mod ERC20Factory {
             )
                 .expect('failed to deploy counter dev');
 
-            new_contract_address.print();
         }
     }
 }

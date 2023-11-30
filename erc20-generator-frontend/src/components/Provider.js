@@ -6,9 +6,14 @@ import {
   publicProvider,
   argent,
   braavos,
-  useInjectedConnectors,
+  useInjectedConnectors,jsonRpcProvider
 } from "@starknet-react/core";
 
+function rpc() {
+    return {
+      nodeUrl: `http://0.0.0.0:5050`
+    }
+  }
 export function StarknetProvider({ children }) {
   const chains = [goerli, mainnet];
   const provider = publicProvider();
