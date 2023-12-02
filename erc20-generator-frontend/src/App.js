@@ -10,6 +10,7 @@ function App() {
   return (
     <StarknetProvider>
       <Home />
+      <>hrllo again tesing</>
     </StarknetProvider>
   );
 }
