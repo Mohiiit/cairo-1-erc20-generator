@@ -1,25 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
+import { StarknetProvider } from './components/Provider';
+import { Card, CardHeader, CardContent, Typography, Button, Dialog, DialogTitle, DialogContent  } from '@mui/material';
+import { useAccount, useNetwork, useConnect, Connector } from "@starknet-react/core";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StarknetProvider>
+      <Home />
+      <>hrllo again tesing again</>
+    </StarknetProvider>
   );
 }
+
 
 export default App;
